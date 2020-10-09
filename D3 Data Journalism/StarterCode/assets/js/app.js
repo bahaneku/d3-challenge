@@ -20,10 +20,10 @@ function makeResponsive() {
     var svgHeight = window.innerHeight;
 
     var margin = {
-        top: 20,
-        bottom: 100,
-        right: 150,
-        left: 1300
+        top: 50,
+        bottom: 50,
+        right: 50,
+        left: 50
     };
 
     var h = svgHeight - margin.top - margin.bottom;
@@ -39,6 +39,7 @@ function makeResponsive() {
     // // Append group element
     var chartGroup = svg.append("g")
         .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
 
     // Read CSV
     d3.csv("assets/data/data.csv").then (function (newsData) {
@@ -138,11 +139,11 @@ function makeResponsive() {
         // Create axes labels
 
         var x_labels = chartGroup.append("g")
-            .attr("transform", `translate(${svgWidth / 2}, ${svgHeight + margin.top - 20})`)
+            .attr("transform", `translate(${w / 2}, ${h + margin.top - 20})`)
 
         var povertyLabel = x_labels.append("text")
             .attr("x", 0)
-            .attr("y", 0)
+            .attr("y", 10)
             .attr("value", "poverty")
             .classed("active", true)
             .text("In Poverty (%)");
@@ -151,7 +152,7 @@ function makeResponsive() {
             .attr("transform", "rotate(-90)")
 
         var healthcareLabel = y_labels.append("text")
-            .attr("x", 0 - (svgHeight / 2))
+            .attr("x", 0 - (h / 2))
             .attr("y", 15 - margin.left)
             .attr("value", "healthcare")
             .classed("active", true)
