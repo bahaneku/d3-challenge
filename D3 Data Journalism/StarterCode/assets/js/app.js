@@ -16,14 +16,14 @@ function makeResponsive() {
 
     // SVG wrapper dimensions are determined by the current width and
     // height of the browser window.
-    var svgWidth = window.innerWidth;
-    var svgHeight = window.innerHeight;
+    var svgWidth = 960;
+    var svgHeight = 660;
 
     var margin = {
-        top: 50,
-        bottom: 50,
-        right: 50,
-        left: 50
+        top: 30,
+        bottom: 70,
+        right: 30,
+        left: 70
     };
 
     var h = svgHeight - margin.top - margin.bottom;
@@ -112,6 +112,7 @@ function makeResponsive() {
             .attr("r", 10)
             .attr("cx", d => xScale(d.poverty))
             .attr("cy", d => yScale(d.healthcare))
+            .style("fill", "purple")
             .classed("stateCircle", true)
             .on("mouseover", function (data) {
                 toolTip.show(data, this);
